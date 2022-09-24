@@ -1,6 +1,6 @@
 import { Input, Container } from "./style";
 
-const InputComp = ({on, classic, value, defaultValue, placeholder, icon, className}) => {
+const InputComp = ({on, classic, value, defaultValue, placeholder, icon, className, name}) => {
     return (
         <Container className={className}>
             {
@@ -9,12 +9,13 @@ const InputComp = ({on, classic, value, defaultValue, placeholder, icon, classNa
                 </div>
             }
             <Input 
-                onClick={on}
+                onChange={on}
                 type={"text"}
                 classic={classic}
                 value={value}
                 defaultValue={defaultValue}
                 placeholder={placeholder}
+                name={name}
             />
         </Container>
     )

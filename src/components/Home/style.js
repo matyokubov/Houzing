@@ -50,5 +50,3 @@ export const Btns = styled.div`
         margin-right: 22px;
     }
 `
-
-// Something 2
