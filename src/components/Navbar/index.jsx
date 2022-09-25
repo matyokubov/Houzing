@@ -10,7 +10,7 @@ const Navbar = () => {
         <>
             <Container>
                 <Main>
-                    <img src={LogoImg} alt="houzing"/>
+                    <img src={LogoImg} alt="houzing" onClick={() => navigate("/home")}/>
                     <div>
                         {
                             navbar.map(({title, path, hidden}, i) => {

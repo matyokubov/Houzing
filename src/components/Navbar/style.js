@@ -20,7 +20,10 @@ export const Main = styled.div`
     align-items: center;
     justify-content: space-between;
     font-size: 16px;
+    img{
+        cursor: pointer;
+    }
     .active {
-        color: #b8ff06;
+        color: var(--routeActiveColor);
     }
 `
