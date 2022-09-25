@@ -4,7 +4,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     padding: var(--containerPadding);
-    background-color: #0D263B;
+    background-color: var(--themeColor);
     a{
         color: #fff;
         text-decoration: none;

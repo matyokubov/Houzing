@@ -7,12 +7,29 @@ import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
 import { useRef } from "react";
 
 const Home = () => {
-  const advancedFilter = useRef({})
-  const setFilterData = ({target}) => {
-    advancedFilter.current = {...advancedFilter.current, [target.name]: target.value}
-  }
+  const country = useRef()
+  const region = useRef()
+  const city = useRef()
+  const zipCode = useRef()
+  const rooms = useRef()
+  const size = useRef()
+  const sort = useRef()
+  const minPrice = useRef()
+  const maxPrice = useRef()
+
   const onSubmit = () => {
-    console.log(advancedFilter.current);
+    let advancedFilterData = {
+      country: country.current.value,
+      region: region.current.value,
+      city: city.current.value,
+      zipCode: zipCode.current.value,
+      rooms: rooms.current.value,
+      size: size.current.value,
+      sort: sort.current.value,
+      minPrice: minPrice.current.value,
+      maxPrice: maxPrice.current.value,
+    }
+    console.log(advancedFilterData);
   }
   const advancedMenu = (
     <Menu>
@@ -20,25 +37,25 @@ const Home = () => {
         <Menu.Item>
           <span>Address</span>
           <div className="inputs-group">
-            <Input placeholder="Country" className={"country"} name="country" on={setFilterData}/>
-            <Input placeholder="Region" className={"reqion"} name="region" on={setFilterData}/>
-            <Input placeholder="City" className={"city"} name="city" on={setFilterData}/>
-            <Input placeholder="Zip Code" className={"zip_code"} name="zip_code" on={setFilterData}/>
+            <Input placeholder="Country" className={"country"} name="country" ref={country}/>
+            <Input placeholder="Region" className={"region"} name="region" ref={region}/>
+            <Input placeholder="City" className={"city"} name="city" ref={city}/>
+            <Input placeholder="Zip Code" className={"zip_code"} name="zip_code" ref={zipCode}/>
           </div>
         </Menu.Item>
         <Menu.Item>
           <span>Apartment info</span>
           <div className="inputs-group">
-            <Input placeholder="Rooms" className={"rooms"} name="rooms" on={setFilterData}/>
-            <Input placeholder="Size" className={"size"} name="size" on={setFilterData}/>
-            <Input placeholder="Sort" className={"sort"} name="sort" on={setFilterData}/>
+            <Input placeholder="Rooms" className={"rooms"} name="rooms" ref={rooms}/>
+            <Input placeholder="Size" className={"size"} name="size" ref={size}/>
+            <Input placeholder="Sort" className={"sort"} name="sort" ref={sort}/>
           </div>
         </Menu.Item>
         <Menu.Item>
           <span>Price</span>
           <div className="inputs-group">
-            <Input placeholder="Min price" className={"minprice"} name="minprice" on={setFilterData}/>
-            <Input placeholder="Max price" className={"maxprice"} name="maxprice" on={setFilterData}/>
+            <Input placeholder="Min price" className={"minprice"} name="minprice" ref={minPrice}/>
+            <Input placeholder="Max price" className={"maxprice"} name="maxprice" ref={maxPrice}/>
           </div>
         </Menu.Item>
       </div>
