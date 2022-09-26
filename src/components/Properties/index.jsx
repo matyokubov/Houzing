@@ -1,9 +1,12 @@
+import Filter from "../Filter"
+
 const Properties = () => {
-  return (
-    <div>
-      <h1>Properties</h1>
-    </div>
-  );
-};
+    return (
+        <div>
+            <Filter/>
+            <h1>Properties</h1>
+        </div>
+    )
+}
 
 export default Properties;

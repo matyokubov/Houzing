@@ -24,7 +24,7 @@ export const Container = styled.div`
 `
 
 const Menu = styled.div`
-    border: 1px solid var(--themeColor);
+    border: 1px solid #fff;
     border-radius: 5px;
     background-color: #fff;
     span{
