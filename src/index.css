@@ -10,8 +10,10 @@
 :root{
   --themeColor: #0D263B;
   --routeActiveColor: #43cff9;
+  --primaryBlue: #0061DF;
   --containerPadding: 0 130px;
   --gray1: #F6F8F9;
+  --grayBorder: #E6E9EC;
 }
 
 html, body{
@@ -21,6 +23,12 @@ html, body{
 body {
   font-family: 'Montserrat', sans-serif;
   overflow-y: scroll;
+}
+
+.container{
+  width: 100%;
+  max-width: 1180px;
+  margin: auto;
 }
 
 /* Custom Scrollbar */

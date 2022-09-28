@@ -68,7 +68,7 @@ const Filter = () => {
     </Menu>
   )
   return (
-    <Container>
+    <Container className="container">
       <Input placeholder="Enter an address, neighborhood, city, or ZIP code" icon={<HousesIcon/>} className={"filter"} />
       <div className="btn-group">
         <Dropdown overlay={advancedMenu} placement={"bottomRight"} arrow={{ pointAtCenter: true }}>

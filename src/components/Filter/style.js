@@ -2,10 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
-    justify-content: center;
-    padding: var(--containerPadding);
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 0;
     column-gap: 20px;
     .btn-group{
         display: flex;

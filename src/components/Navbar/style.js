@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    padding: var(--containerPadding);
     background-color: var(--themeColor);
     a{
         color: #fff;
@@ -13,9 +10,7 @@ export const Container = styled.div`
 `
 
 export const Main = styled.div`
-    width: 100%;
     height: 64px;
-    max-width: 1440px;
     display: flex;
     align-items: center;
     justify-content: space-between;

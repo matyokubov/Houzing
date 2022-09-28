@@ -9,6 +9,7 @@ export const Container = styled.div`
     position: relative;
     height: 570px;
     user-select: none;
+    margin-bottom: 6rem;
     .arrow{
         position: absolute;
         transform: translateY(-295px);
