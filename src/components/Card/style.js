@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import img2 from "../../assets/house1.png"
 import { ReactComponent as bed } from "../../assets/icons/bed2.svg";
 import { ReactComponent as bath } from "../../assets/icons/bath2.svg";
 import { ReactComponent as car } from "../../assets/icons/car2.svg";
@@ -9,7 +8,6 @@ import { ReactComponent as like } from "../../assets/icons/like.svg";
 
 export const Container = styled.div`
     width: 380px;
-    /* height: 430px;s */
     border: 1px solid var(--grayBorder);
     border-radius: 3px;
     margin-bottom: 48px;
@@ -18,7 +16,7 @@ export const Container = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        background-image: url(${img2});
+        background-image: url(${({houseImg}) => houseImg});
         background-size: cover;
         background-position: center;
         height: 220px;
@@ -55,7 +53,7 @@ export const Container = styled.div`
         font-size: 16px;
         font-weight: 600;
         margin: 0;
-        margin-bottom: 4px;
+        margin-bottom: 4px !important;
         color: var(--themeColor);
     }
 `

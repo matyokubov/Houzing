@@ -1,7 +1,16 @@
 import { Container, Info, Bed, Bath, Car, Area, Prices, Full, Like } from "./style";
-import img1 from "../../mock/owner.png"
+import unknownUser from "../../assets/user.jpg"
+import noImg from "../../assets/noimg.jpg"
 
-const Card = ({settings = {beds: 0, baths: 0, garage: 0, area: 0}}) => {
+const Card = ({
+        settings = {beds: 0, baths: 0, garage: 0, area: 0},
+        title="Unknown Home",
+        subtitle="No short description",
+        afterPrice="0",
+        pricePerMonth="0",
+        houseImg,
+        ownerImg
+    }) => {
     const badgeStyles = {
         featured: {
             background: "var(--primaryBlue)",
@@ -13,7 +22,7 @@ const Card = ({settings = {beds: 0, baths: 0, garage: 0, area: 0}}) => {
         }
     }
     return (
-        <Container>
+        <Container houseImg={houseImg ? houseImg : noImg}>
             <div>
                 <div className="style">
                     <div className="badges">
@@ -22,13 +31,13 @@ const Card = ({settings = {beds: 0, baths: 0, garage: 0, area: 0}}) => {
                     </div>
                     <div className="image">
                         <div className="ownerImg">
-                            <img src={img1} alt="owner" className="owner" />
+                            <img src={ownerImg ? ownerImg : unknownUser} alt="owner" className="owner" />
                         </div>
                     </div>
                 </div>
                 <Info>
-                    <h2>New Apartment Nice Wiew</h2>
-                    <h3>Quincy St, Brooklyn, NY, USA</h3>
+                    <h2 style={{cursor: "pointer"}}>{title}</h2>
+                    <h3>{subtitle}</h3>
                     <div className='settings'>
                         <div>
                             <Bed/>
@@ -51,8 +60,8 @@ const Card = ({settings = {beds: 0, baths: 0, garage: 0, area: 0}}) => {
                 <hr />
                 <Prices>
                     <div className="current">
-                        <span>$0/mo</span>
-                        <h2>$1000/mo</h2>
+                        <span style={{textDecoration: "strike"}}>${afterPrice}/mo</span>
+                        <h2>${pricePerMonth}/mo</h2>
                     </div>
                     <div className="action">
                         <div>
