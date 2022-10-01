@@ -22,7 +22,7 @@ const Card = ({
         }
     }
     return (
-        <Container houseImg={houseImg ? houseImg : noImg}>
+        <Container houseImg={houseImg && houseImg != 'string' ? houseImg : noImg}>
             <div>
                 <div className="style">
                     <div className="badges">
@@ -41,27 +41,27 @@ const Card = ({
                     <div className='settings'>
                         <div>
                             <Bed/>
-                            <span>{settings.beds} Beds</span>
+                            <span>{settings.beds || 0} Beds</span>
                         </div>
                         <div>
                             <Bath/>
-                            <span>{settings.baths} Bath</span>
+                            <span>{settings.baths || 0} Bath</span>
                         </div>
                         <div>
                             <Car/>
-                            <span>{settings.garage} Garages</span>
+                            <span>{settings.garage || 0} Garages</span>
                         </div>
                         <div>
                             <Area style={{width: "19px", height: "19px"}}/>
-                            <span>{settings.area} Sq Ft</span>
+                            <span>{settings.area || 0} Sq Ft</span>
                         </div>
                     </div>
                 </Info>
                 <hr />
                 <Prices>
                     <div className="current">
-                        <span style={{textDecoration: "strike"}}>${afterPrice}/mo</span>
-                        <h2>${pricePerMonth}/mo</h2>
+                        <span style={{textDecoration: "line-through"}}>${afterPrice || 0}/mo</span>
+                        <h2>${pricePerMonth || 0}/mo</h2>
                     </div>
                     <div className="action">
                         <div>
