@@ -22,7 +22,7 @@ const Card = ({
         }
     }
     return (
-        <Container houseImg={houseImg && houseImg != 'string' ? houseImg : noImg}>
+        <Container houseImg={houseImg && houseImg !== 'string' ? houseImg : noImg}>
             <div>
                 <div className="style">
                     <div className="badges">
