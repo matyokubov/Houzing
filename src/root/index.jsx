@@ -12,6 +12,7 @@ const Root = () => {
             .then((res) => res.json())
             .then((data) => setHousesList(data))
             .catch((err) => console.log("error", err))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
         <div>
