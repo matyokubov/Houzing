@@ -4,7 +4,10 @@ import { Dropdown } from "antd";
 import { ReactComponent as HousesIcon } from '../../assets/icons/houses.svg';
 import { ReactComponent as FilterIcon } from '../../assets/icons/setting-lines.svg';
 import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { setParam } from "../../hooks/onSearch"
+import { useLocation, useNavigate } from "react-router-dom";
+import { useSearch } from "../../hooks/useSearch";
 
 const Filter = () => {
   const country = useRef()
@@ -16,7 +19,13 @@ const Filter = () => {
   const sort = useRef()
   const minPrice = useRef()
   const maxPrice = useRef()
-
+  const [visible, setVisible] = useState(false)
+  const handleVisibleChange = (flag) => {
+    setVisible(flag);
+  };
+  const navigate = useNavigate()
+  const location = useLocation()
+  const query = useSearch()
   const onSubmit = () => {
     let advancedFilterData = {
       country: country.current.value,
@@ -29,6 +38,9 @@ const Filter = () => {
       minPrice: minPrice.current.value,
       maxPrice: maxPrice.current.value,
     }
+    Object.keys(advancedFilterData).forEach((query, i) => {
+      navigate(`${location?.pathname}${setParam(query, Object.values(advancedFilterData)[i])}`)
+    })
     console.log(advancedFilterData);
   }
   const advancedMenu = (
@@ -37,31 +49,31 @@ const Filter = () => {
         <Menu.Item>
           <span>Address</span>
           <div className="inputs-group">
-            <Input placeholder="Country" className={"country"} name="country" ref={country}/>
-            <Input placeholder="Region" className={"region"} name="region" ref={region}/>
-            <Input placeholder="City" className={"city"} name="city" ref={city}/>
-            <Input placeholder="Zip Code" className={"zip_code"} name="zip_code" ref={zipCode}/>
+            <Input placeholder="Country" className={"country"} name="country" ref={country} defaultValue={query.get("country")}/>
+            <Input placeholder="Region" className={"region"} name="region" ref={region}  defaultValue={query.get("region")}/>
+            <Input placeholder="City" className={"city"} name="city" ref={city} defaultValue={query.get("city")}/>
+            <Input placeholder="Zip Code" className={"zip_code"} name="zip_code" ref={zipCode} defaultValue={query.get("zip_code")}/>
           </div>
         </Menu.Item>
         <Menu.Item>
           <span>Apartment info</span>
           <div className="inputs-group">
-            <Input placeholder="Rooms" className={"rooms"} name="rooms" ref={rooms}/>
-            <Input placeholder="Size" className={"size"} name="size" ref={size}/>
-            <Input placeholder="Sort" className={"sort"} name="sort" ref={sort}/>
+            <Input placeholder="Rooms" className={"rooms"} name="rooms" ref={rooms} defaultValue={query.get("rooms")}/>
+            <Input placeholder="Size" className={"size"} name="size" ref={size} defaultValue={query.get("size")}/>
+            <Input placeholder="Sort" className={"sort"} name="sort" ref={sort} defaultValue={query.get("sort")}/>
           </div>
         </Menu.Item>
         <Menu.Item>
           <span>Price</span>
           <div className="inputs-group">
-            <Input placeholder="Min price" className={"minprice"} name="minprice" ref={minPrice}/>
-            <Input placeholder="Max price" className={"maxprice"} name="maxprice" ref={maxPrice}/>
+            <Input placeholder="Min price" className={"minprice"} name="min_price" ref={minPrice} defaultValue={query.get("min_price")}/>
+            <Input placeholder="Max price" className={"maxprice"} name="max_price" ref={maxPrice} defaultValue={query.get("min_price")}/>
           </div>
         </Menu.Item>
       </div>
       <Btns>
         <div>
-          <Button type={"light"} style={{borderColor: "var(--themeColor)"}}>Cancel</Button>
+          <Button type={"light"} style={{borderColor: "var(--themeColor)"}} on={() => setVisible(false)}>Cancel</Button>
           <Button on={onSubmit}>Submit</Button>
         </div>
       </Btns>
@@ -71,7 +83,7 @@ const Filter = () => {
     <Container className="container">
       <Input placeholder="Enter an address, neighborhood, city, or ZIP code" icon={<HousesIcon/>} className={"filter"} />
       <div className="btn-group">
-        <Dropdown overlay={advancedMenu} placement={"bottomRight"} arrow={{ pointAtCenter: true }}>
+        <Dropdown overlay={advancedMenu} placement={"bottomRight"} arrow={{ pointAtCenter: true }} trigger="click" visible={visible} onVisibleChange={handleVisibleChange}>
           <div>
             <Button type={"light"}>
               <FilterIcon/>Advanced

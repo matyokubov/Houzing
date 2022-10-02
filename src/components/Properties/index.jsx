@@ -16,7 +16,7 @@ const Properties = () => {
                     <p>Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.</p>
                     <div>
                         <span>
-                            <b>{housesList.map.size}</b> results
+                            <b>{housesList && housesList.map.size}</b> results
                         </span>
                         <select name="sort" id="sort" defaultValue={"all"}>
                             <option value="all">All houses</option>
