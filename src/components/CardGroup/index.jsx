@@ -4,7 +4,7 @@ import { cards } from '../../mock/data'
 
 const CardGroup = () => {
     return (
-        <Container className="container">
+        <Container className="container subcontainer">
             <h1>Recommended</h1>
             <h2>Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.</h2>
             <div className='cards'>

@@ -4,12 +4,27 @@ import { Dropdown } from "antd";
 import { ReactComponent as HousesIcon } from '../../assets/icons/houses.svg';
 import { ReactComponent as FilterIcon } from '../../assets/icons/setting-lines.svg';
 import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 import { setParam } from "../../hooks/onSearch"
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSearch } from "../../hooks/useSearch";
+import { ContextAPI } from "../../context";
 
 const Filter = () => {
+  const currentProcess = useRef(
+    {
+      message: "Loading... 1",
+      success: false,
+      data: [],
+      map: {
+        size: 0,
+        total_elements: 0,
+        total_pages: 0
+      }
+    }
+  )
+  const { setHousesList } = useContext(ContextAPI)
+  const address = useRef()
   const country = useRef()
   const region = useRef()
   const city = useRef()
@@ -32,16 +47,27 @@ const Filter = () => {
       region: region.current.value,
       city: city.current.value,
       zipCode: zipCode.current.value,
-      rooms: rooms.current.value,
+      room: rooms.current.value,
       size: size.current.value,
       sort: sort.current.value,
-      minPrice: minPrice.current.value,
-      maxPrice: maxPrice.current.value,
+      min_price: minPrice.current.value,
+      max_price: maxPrice.current.value,
     }
     Object.keys(advancedFilterData).forEach((query, i) => {
       navigate(`${location?.pathname}${setParam(query, Object.values(advancedFilterData)[i])}`)
     })
-    console.log(advancedFilterData);
+    setHousesList(currentProcess.current)
+    console.log("advanced search");
+  }
+  const quickSearch = () => {
+    let data = {
+      address: address.current.value
+    }
+    Object.keys(data).forEach((query, i) => {
+      navigate(`${location?.pathname}${setParam(query, Object.values(data)[i])}`)
+    })
+    setHousesList(currentProcess.current)
+    console.log("quick search");
   }
   const advancedMenu = (
     <Menu>
@@ -81,7 +107,7 @@ const Filter = () => {
   )
   return (
     <Container className="container">
-      <Input placeholder="Enter an address, neighborhood, city, or ZIP code" icon={<HousesIcon/>} className={"filter"} />
+      <Input placeholder="Enter an address, neighborhood, city, or ZIP code" icon={<HousesIcon/>} className={"filter"} ref={address}  defaultValue={query.get("address")}/>
       <div className="btn-group">
         <Dropdown overlay={advancedMenu} placement={"bottomRight"} arrow={{ pointAtCenter: true }} trigger="click" visible={visible} onVisibleChange={handleVisibleChange}>
           <div>
@@ -90,7 +116,7 @@ const Filter = () => {
             </Button>
           </div>
         </Dropdown>
-        <Button width={"180px"}>
+        <Button width={"180px"} on={quickSearch}>
           <SearchIcon/>
           Search
         </Button>
