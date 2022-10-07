@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Select } from "antd";
 
 export const Houses = styled.div`
     display: flex;
@@ -22,4 +23,10 @@ export const Head = styled.div`
             font-weight: 700;
         }
     }
+`
+
+export const AntSelect = styled(Select)`
+    min-width: 150px;
+    max-width: 150px;
+    width: 100%;
 `

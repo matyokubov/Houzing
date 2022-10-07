@@ -2,7 +2,7 @@ import Card from "../Card";
 import { useContext, useEffect } from "react";
 import { ContextAPI } from "../../context";
 import Filter from "../Filter"
-import { Houses, Head } from "./style";
+import { Houses, Head, AntSelect } from "./style";
 import { useLocation, useNavigate } from "react-router-dom";
 import { setParam } from "../../hooks/onSearch";
 import useSearch from "../../hooks/useSearch";
@@ -13,7 +13,7 @@ const Properties = () => {
     const { REACT_APP_BASE_URL: url } = process.env
     const navigate = useNavigate()
     const query = useSearch()
-    const changeCategory = ({target: {value}}) => {
+    const changeCategory = (value) => {
         navigate(`/properties${setParam("category_id", value)}`)
     }
     console.log(housesList);
@@ -47,13 +47,13 @@ const Properties = () => {
                         <span>
                             <b>{housesList && housesList.map.total_elements}</b> results
                         </span>
-                        <select name="sort" id="sort" onChange={changeCategory} defaultValue={query.get("category_id")}>
-                            <option value="">All houses</option>
-                            <option value="4">Cottages</option>
-                            <option value="1">Apartment</option>
-                            <option value="65">Office</option>
-                            <option value="2">Villa</option>
-                        </select>
+                        <AntSelect name="sort" id="sort" onChange={changeCategory} defaultValue={query.get("category_id") || ""}>
+                            <AntSelect.Option value="">All houses</AntSelect.Option>
+                            <AntSelect.Option value="4">Cottages</AntSelect.Option>
+                            <AntSelect.Option value="1">Apartment</AntSelect.Option>
+                            <AntSelect.Option value="65">Office</AntSelect.Option>
+                            <AntSelect.Option value="2">Villa</AntSelect.Option>
+                        </AntSelect>
                     </div>
                 </Head>
                 <Houses>
