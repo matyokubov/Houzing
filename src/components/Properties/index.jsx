@@ -47,7 +47,7 @@ const Properties = () => {
                         <span>
                             <b>{housesList && housesList.map.total_elements}</b> results
                         </span>
-                        <AntSelect name="sort" id="sort" onChange={changeCategory} defaultValue={query.get("category_id") || ""}>
+                        <AntSelect onChange={changeCategory} defaultValue={query.get("category_id") || ""}>
                             <AntSelect.Option value="">All houses</AntSelect.Option>
                             <AntSelect.Option value="4">Cottages</AntSelect.Option>
                             <AntSelect.Option value="1">Apartment</AntSelect.Option>

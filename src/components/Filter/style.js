@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Select } from "antd";
 
 export const Container = styled.div`
     display: flex;
@@ -45,5 +46,16 @@ export const Btns = styled.div`
     background-color: var(--gray1);
     button{
         margin-right: 22px;
+    }
+`
+
+export const AntSelect = styled(Select)`
+    min-width: 150px;
+    max-width: 150px;
+    width: 100%;
+    span{
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 0;
     }
 `

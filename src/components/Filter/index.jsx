@@ -1,5 +1,5 @@
 import { Button, Input } from "../Generic";
-import { Container, Menu, Btns } from "./style";
+import { Container, Menu, Btns, AntSelect } from "./style";
 import { Dropdown } from "antd";
 import { ReactComponent as HousesIcon } from '../../assets/icons/houses.svg';
 import { ReactComponent as FilterIcon } from '../../assets/icons/setting-lines.svg';
@@ -69,6 +69,9 @@ const Filter = () => {
     setHousesList(currentProcess.current)
     console.log("quick search");
   }
+  const changeSort = (value) => {
+    sort.current = {value}
+  }
   const advancedMenu = (
     <Menu>
       <div>
@@ -86,7 +89,11 @@ const Filter = () => {
           <div className="inputs-group">
             <Input placeholder="Rooms" className={"rooms"} name="rooms" ref={rooms} defaultValue={query.get("rooms")}/>
             <Input placeholder="Size" className={"size"} name="size" ref={size} defaultValue={query.get("size")}/>
-            <Input placeholder="Sort" className={"sort"} name="sort" ref={sort} defaultValue={query.get("sort")}/>
+            <AntSelect name="sort" onChange={changeSort} defaultValue={query.get("sort") || ""}>
+                <AntSelect.Option value="">Default sort</AntSelect.Option>
+                <AntSelect.Option value="asc">Asc</AntSelect.Option>
+                <AntSelect.Option value="desc">Desc</AntSelect.Option>
+            </AntSelect>
           </div>
         </Menu.Item>
         <Menu.Item>
