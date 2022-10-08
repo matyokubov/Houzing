@@ -3,6 +3,7 @@ import Carousel from "../Carousel"
 import CardGroup from "../CardGroup"
 import Why from "../Why"
 import Categories from "../Categories"
+import Banner from "../Banner"
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <CardGroup/>
             <Why/>
             <Categories/>
+            <Banner/>
         </div>
     )
 }
