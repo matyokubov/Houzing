@@ -1,6 +1,7 @@
 import Filter from "../Filter"
 import Carousel from "../Carousel"
 import CardGroup from "../CardGroup"
+import Why from "../Why"
 import Categories from "../Categories"
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
             <Filter/>
             <Carousel/>
             <CardGroup/>
+            <Why/>
             <Categories/>
         </div>
     )
