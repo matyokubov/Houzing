@@ -10,7 +10,8 @@ const InputComp = forwardRef(
             placeholder,
             icon,
             className,
-            name
+            name,
+            onPress
         },
         ref
     ) => {
@@ -29,6 +30,7 @@ const InputComp = forwardRef(
                     defaultValue={defaultValue}
                     placeholder={placeholder}
                     name={name}
+                    onKeyPress={onPress}
                 />
             </Container>
         )

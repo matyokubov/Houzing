@@ -56,6 +56,7 @@ const Filter = () => {
       navigate(`/properties${setParam(query, Object.values(advancedFilterData)[i])}`)
     })
     setHousesList(currentProcess.current)
+    setVisible(false)
     console.log("advanced search");
   }
   const quickSearch = () => {
@@ -113,7 +114,7 @@ const Filter = () => {
   )
   return (
     <Container className="container">
-      <Input placeholder="Enter an address, neighborhood, city, or ZIP code" icon={<HousesIcon/>} className={"filter"} ref={address}  defaultValue={query.get("address")}/>
+      <Input placeholder="Enter an address, neighborhood, city, or ZIP code" icon={<HousesIcon/>} className={"filter"} ref={address} onPress={(e) => e.key === "Enter" && quickSearch()} defaultValue={query.get("address")}/>
       <div className="btn-group">
         <Dropdown overlay={advancedMenu} placement={"bottomRight"} arrow={{ pointAtCenter: true }} trigger="click" visible={visible} onVisibleChange={handleVisibleChange}>
           <div>
