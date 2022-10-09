@@ -3,6 +3,7 @@ import { Container, Main } from "./style"
 import { LogoImg } from "../../util/navbar"
 import { navbar } from "../../util/navbar"
 import { Button } from "../Generic"
+import Footer from "../Footer"
 
 const Navbar = () => {
     const navigate = useNavigate()
@@ -24,6 +25,7 @@ const Navbar = () => {
                 </Main>
             </Container>
             <Outlet/>
+            <Footer/>
         </>
     )
 }

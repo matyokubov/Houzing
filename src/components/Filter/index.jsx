@@ -6,7 +6,7 @@ import { ReactComponent as FilterIcon } from '../../assets/icons/setting-lines.s
 import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
 import { useRef, useState, useContext } from "react";
 import { setParam } from "../../hooks/onSearch"
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSearch } from "../../hooks/useSearch";
 import { ContextAPI } from "../../context";
 
@@ -31,7 +31,7 @@ const Filter = () => {
   const zipCode = useRef()
   const rooms = useRef()
   const size = useRef()
-  const sort = useRef()
+  const sort = useRef("")
   const minPrice = useRef()
   const maxPrice = useRef()
   const [visible, setVisible] = useState(false)
@@ -39,7 +39,6 @@ const Filter = () => {
     setVisible(flag);
   };
   const navigate = useNavigate()
-  const location = useLocation()
   const query = useSearch()
   const onSubmit = () => {
     let advancedFilterData = {
@@ -54,7 +53,7 @@ const Filter = () => {
       max_price: maxPrice.current.value,
     }
     Object.keys(advancedFilterData).forEach((query, i) => {
-      navigate(`${location?.pathname}${setParam(query, Object.values(advancedFilterData)[i])}`)
+      navigate(`/properties${setParam(query, Object.values(advancedFilterData)[i])}`)
     })
     setHousesList(currentProcess.current)
     console.log("advanced search");
@@ -64,7 +63,7 @@ const Filter = () => {
       address: address.current.value
     }
     Object.keys(data).forEach((query, i) => {
-      navigate(`${location?.pathname}${setParam(query, Object.values(data)[i])}`)
+      navigate(`/properties${setParam(query, Object.values(data)[i])}`)
     })
     setHousesList(currentProcess.current)
     console.log("quick search");

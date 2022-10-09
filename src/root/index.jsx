@@ -11,9 +11,9 @@ const Root = () => {
                     {navbar.map(({id, element, path}) => {
                         return <Route key={id} path={path} element={element}/>
                     })}
+                    <Route path="*" element={<h1>404 ERROR</h1>}/>
                 </Route>
                 <Route path="/" element={<Navigate to={"/home"}/>}/>
-                <Route path="*" element={<h1>404 ERROR</h1>}/>
             </Routes>
         </div>
     )

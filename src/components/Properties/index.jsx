@@ -33,7 +33,18 @@ const Properties = () => {
                     }
                 }
             ))
-            .catch((err) => console.log("error", err))
+            .catch(() => {
+                setHousesList({
+                    message: "Connection Error",
+                    success: false,
+                    data: [],
+                    map: {
+                      size: 0,
+                      total_elements: 0,
+                      total_pages: 0
+                    }
+                })
+            })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [search])
     return (
