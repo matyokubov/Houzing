@@ -1,9 +1,8 @@
+import Loader from '../components/Loader';
 import React from 'react';
 import logo from "../assets/logo.png";
 const HomePage = React.lazy(() => import('../pages/Home'))
 const Properties = React.lazy(() => import('../pages/Properties'))
-// import HomePage from '../pages/Home';
-// import Properties from '../pages/Properties';
 
 export const LogoImg = logo;
 
@@ -11,7 +10,7 @@ export const navbar = [
   {
     id: 1,
     element: (
-      <React.Suspense fallback={<React.Fragment>Loading</React.Fragment>}>
+      <React.Suspense fallback={<React.Fragment><Loader/></React.Fragment>}>
         <HomePage/>
       </React.Suspense>
     ),
@@ -23,7 +22,7 @@ export const navbar = [
   {
     id: 2,
     element: (
-      <React.Suspense fallback={<React.Fragment>Loading</React.Fragment>}>
+      <React.Suspense fallback={<React.Fragment><Loader/></React.Fragment>}>
         <Properties/>
       </React.Suspense>
     ),

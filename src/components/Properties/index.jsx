@@ -2,6 +2,7 @@ import Card from "../Card";
 import { useContext, useEffect } from "react";
 import { ContextAPI } from "../../context";
 import Filter from "../Filter"
+import Loader from "../Loader"
 import { Houses, Head, AntSelect } from "./style";
 import { useLocation, useNavigate } from "react-router-dom";
 import { setParam } from "../../hooks/onSearch";
@@ -79,7 +80,7 @@ const Properties = () => {
                                 afterPrice={house.price}
                                 pricePerMonth={house.salePrice}
                             />
-                        ) : !housesList.map.total_elements ? <h1>{housesList.message}</h1> : []
+                        ) : !housesList.map.total_elements ? <Loader load>{housesList.message}</Loader> : []
                     }
                 </Houses>
             </div>
