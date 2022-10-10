@@ -10,10 +10,19 @@ const Home = () => {
         <div>
             <Filter/>
             <Carousel/>
-            <CardGroup/>
+            <CardGroup
+                title={"Recommended"}
+                subtitle={"Nulla quis curabitur velit volutpat auctor bibendum consectetur sit."}
+                recommended
+            />
             <Why/>
             <Categories/>
             <Banner/>
+            <CardGroup
+                title={"Recent Properties for Rent"}
+                subtitle={"Nulla quis curabitur velit volutpat auctor bibendum consectetur sit."}
+                recent
+            />
         </div>
     )
 }

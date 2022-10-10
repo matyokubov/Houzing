@@ -1,25 +1,36 @@
+import { useEffect, useState } from "react"
 import Card from '../Card'
 import { Container } from './style'
-import { cards } from '../../mock/data'
+import { cards as mock } from '../../mock/data'
 
-const CardGroup = () => {
+const CardGroup = ({title, subtitle, recommended, recent}) => {
+    const { REACT_APP_BASE_URL: url } = process.env
+    const [ data, setData ] = useState(mock)
+    useEffect(() => {
+        fetch(`${url}houses/list`)
+            .then((res) => res.json())
+            .then((houses) => {
+                if(recommended) setData(houses.data.slice(0, 3))
+                else if(recent) setData(houses.data.slice(-3))
+            })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     return (
         <Container className="container subcontainer">
-            <h1>Recommended</h1>
-            <h2>Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.</h2>
+            <h1>{title}</h1>
+            <h2>{subtitle}</h2>
             <div className='cards'>
                 {
-                    cards?.map(({id, title, subtitle, settings, pricePerMonth, img, afterPrice, ownerImg}) => {
+                    data?.map((house, i) => {
                         return (
-                            <Card 
-                                key={id}
-                                title={title}
-                                subtitle={subtitle}
-                                settings={settings}
-                                afterPrice={afterPrice}
-                                pricePerMonth={pricePerMonth}
-                                houseImg={img}
-                                ownerImg={ownerImg}
+                            <Card
+                                key={i}
+                                title={house.name}
+                                subtitle={`${house.address}, ${house.country}`}
+                                settings={house.houseDetails}
+                                houseImg={house.attachments[0].imgPath}
+                                afterPrice={house.price}
+                                pricePerMonth={house.salePrice}
                             />
                         )
                     })
