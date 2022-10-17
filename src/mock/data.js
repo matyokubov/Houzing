@@ -1,5 +1,6 @@
 import img1 from "../assets/house1.png"
 import noImg from "../assets/noimg.jpg"
+import user from "./owner.png"
 
 export const data = [
     {
@@ -103,5 +104,44 @@ export const cards = [
                 imgPath: noImg
             }
         ]
+    }
+]
+
+export const t = [
+    {
+        user: "John Doe",
+        job: "Designer",
+        description: "I believe in lifelong learning and Skola is a great place to learn from experts. I've learned a lot and recommend it to all my friends",
+        userImg: user
+    },
+    {
+        user: "Katty Alex",
+        job: "Engineer",
+        description: "I believe in lifelong learning and Skola is a great place to learn from experts. I've learned a lot and recommend it to all my friends",
+        userImg: user
+    },
+    {
+        user: "Kelly Alex",
+        job: "Developer",
+        description: "I believe in lifelong learning and Skola is a great place to learn from experts. I've learned a lot and recommend it to all my friends",
+        userImg: user
+    },
+    {
+        user: "John Doe 1",
+        job: "Designer",
+        description: "I believe in lifelong learning and Skola is a great place to learn from experts. I've learned a lot and recommend it to all my friends",
+        userImg: user
+    },
+    {
+        user: "Katty Alex 1 ",
+        job: "Engineer",
+        description: "I believe in lifelong learning and Skola is a great place to learn from experts. I've learned a lot and recommend it to all my friends",
+        userImg: user
+    },
+    {
+        user: "Kelly Alex 1",
+        job: "Developer",
+        description: "I believe in lifelong learning and Skola is a great place to learn from experts. I've learned a lot and recommend it to all my friends",
+        userImg: user
     }
 ]

@@ -4,6 +4,7 @@ import CardGroup from "../CardGroup"
 import Why from "../Why"
 import Categories from "../Categories"
 import Banner from "../Banner"
+import Testimonials from "../Testimonials"
 
 const Home = () => {
     return (
@@ -23,6 +24,7 @@ const Home = () => {
                 subtitle={"Nulla quis curabitur velit volutpat auctor bibendum consectetur sit."}
                 recent
             />
+            <Testimonials/>
         </div>
     )
 }
