@@ -48,14 +48,12 @@ const Footer = () => {
                         <div className="col">
                             <h3>Lists by Category</h3>
                             <div>Apartments</div>
-                            <div>Condos</div>
-                            <div>Houses</div>
-                            <div>Offices</div>
-                            <div>Retail</div>
+                            <div>Cottages</div>
+                            <div>Office</div>
                             <div>Villas</div>
                         </div>
                         <div className="col">
-                            <h3>Lists by Category</h3>
+                            <h3>More</h3>
                             <div>About Us</div>
                             <div>Terms & Conditions</div>
                             <div>Support Center</div>
