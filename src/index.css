@@ -30,6 +30,7 @@ body {
   width: 100%;
   max-width: 1180px;
   margin: auto;
+  padding: 0 0.5rem;
 }
 
 .subcontainer{

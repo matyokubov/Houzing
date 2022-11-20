@@ -3,6 +3,7 @@ import React from 'react';
 import logo from "../assets/logo.png";
 const HomePage = React.lazy(() => import('../pages/Home'))
 const Properties = React.lazy(() => import('../pages/Properties'))
+const HouseDetails = React.lazy(() => import('../pages/HouseDetails'))
 
 export const LogoImg = logo;
 
@@ -39,4 +40,16 @@ export const navbar = [
     private: false,
     hidden: true,
   },
+  {
+    id: 4,
+    element: (
+      <React.Suspense fallback={<React.Fragment><Loader/></React.Fragment>}>
+        <HouseDetails/>
+      </React.Suspense>
+    ),
+    title: 'House Details',
+    path: '/properties/:id',
+    private: false,
+    hidden: true,
+  }
 ];

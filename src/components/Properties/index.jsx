@@ -1,5 +1,6 @@
 import Card from "../Card";
-import { useContext, useEffect } from "react";
+import { Button } from "../Generic"
+import { useContext, useEffect, useRef, useState } from "react";
 import { ContextAPI } from "../../context";
 import Filter from "../Filter"
 import Loader from "../Loader"
@@ -9,31 +10,40 @@ import { setParam } from "../../hooks/onSearch";
 import useSearch from "../../hooks/useSearch";
 
 const Properties = () => {
-    const { housesList, setHousesList } = useContext(ContextAPI)
+    const { housesList, setHousesList, changingReq, setChangingReq } = useContext(ContextAPI)
     const { search } = useLocation()
     const { REACT_APP_BASE_URL: url } = process.env
     const navigate = useNavigate()
     const query = useSearch()
     const changeCategory = (value) => {
+        setChangingReq(changingReq+1)
         navigate(`/properties${setParam("category_id", value)}`)
     }
-    console.log(housesList);
-    console.log("pp");
+    const hsize = useRef(20)
+    const [smv, setSmv] = useState(false)
+    console.log("Properties");
     useEffect(() => {
+        hsize.current = 20
         fetch(`${url}houses/list${search}`)
             .then((res) => res.json())
-            .then((data) => data.status !== 500 ? setHousesList(data) : setHousesList(
-                {
-                    message: "Internal Server Error",
-                    success: false,
-                    data: [],
-                    map: {
-                      size: 0,
-                      total_elements: 0,
-                      total_pages: 0
-                    }
+            .then((data) => {
+                if(data.status !== 500) {
+                    setHousesList(data)
+                    data.map.total_elements >= 20 ? setSmv(true) : setSmv(false)
                 }
-            ))
+                else setHousesList(
+                    {
+                        message: "Internal Server Error",
+                        success: false,
+                        data: [],
+                        map: {
+                        size: 0,
+                        total_elements: 0,
+                        total_pages: 0
+                        }
+                    }
+                )
+            })
             .catch(() => {
                 setHousesList({
                     message: "Connection Error",
@@ -47,7 +57,22 @@ const Properties = () => {
                 })
             })
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [search])
+    }, [changingReq])
+    const showMore = () => {
+        hsize.current = hsize.current <= housesList.map.total_elements ? housesList.map.size+hsize.current : hsize.current
+        hsize.current >= housesList.map.total_elements && setSmv(false)
+        const newReqSmv = new URLSearchParams(search)
+        newReqSmv.set("size", hsize.current);
+        fetch(`${url}houses/list?${newReqSmv.toString()}`)
+            .then((res) => res.json())
+            .then((data) => {
+                if(data.status !== 500) {
+                    setHousesList(data)
+                }
+            })
+        console.log(`${url}houses/list${newReqSmv.toString()}`);
+    }
+    console.log(smv);
     return (
         <div>
             <Filter/>
@@ -79,10 +104,14 @@ const Properties = () => {
                                 houseImg={house.attachments[0].imgPath}
                                 afterPrice={house.price}
                                 pricePerMonth={house.salePrice}
+                                id={house.id}
                             />
                         ) : !housesList.map.total_elements ? <Loader load>{housesList.message}</Loader> : []
                     }
                 </Houses>
+                <div style={{display: "flex", justifyContent: "center", marginBottom: "96px"}}>
+                    {smv && <Button width={"250px"} height={"44px"} on={showMore}>Show More</Button>}
+                </div>
             </div>
         </div>
     )

@@ -23,7 +23,7 @@ const Filter = () => {
       }
     }
   )
-  const { setHousesList } = useContext(ContextAPI)
+  const { setHousesList, changingReq, setChangingReq } = useContext(ContextAPI)
   const address = useRef()
   const country = useRef()
   const region = useRef()
@@ -41,6 +41,7 @@ const Filter = () => {
   const navigate = useNavigate()
   const query = useSearch()
   const onSubmit = () => {
+    setChangingReq(changingReq+1)
     let advancedFilterData = {
       country: country.current.value,
       region: region.current.value,
@@ -60,6 +61,7 @@ const Filter = () => {
     console.log("advanced search");
   }
   const quickSearch = () => {
+    setChangingReq(changingReq+1)
     let data = {
       address: address.current.value
     }

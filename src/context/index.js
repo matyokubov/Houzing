@@ -15,8 +15,9 @@ export const Context = ({children}) => {
             }
         }
     )
+    const [changingReq, setChangingReq] = useState(0)
     return (
-        <ContextAPI.Provider value={{ housesList, setHousesList }}>
+        <ContextAPI.Provider value={{ housesList, setHousesList, changingReq, setChangingReq }}>
             {children}
         </ContextAPI.Provider>
     )

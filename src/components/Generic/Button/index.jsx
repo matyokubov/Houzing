@@ -1,8 +1,8 @@
 import { Button } from "./style";
 
-const ButtonComp = ({on, type, children, width, style}) => {
+const ButtonComp = ({on, type, children, width, height, style}) => {
     return (
-        <Button onClick={on} type={type} width={width} style={style}>{children}</Button>
+        <Button onClick={on} type={type} width={width} height={height} style={style}>{children}</Button>
     )
 }
 

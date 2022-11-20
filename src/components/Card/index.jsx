@@ -1,6 +1,7 @@
 import { Container, Info, Bed, Bath, Car, Area, Prices, Full, Like } from "./style";
 import unknownUser from "../../assets/user.jpg"
 import noImg from "../../assets/noimg.jpg"
+import { useNavigate } from "react-router-dom"
 
 const Card = ({
         settings = {beds: 0, baths: 0, garage: 0, area: 0},
@@ -9,8 +10,10 @@ const Card = ({
         afterPrice="0",
         pricePerMonth="0",
         houseImg,
-        ownerImg
+        ownerImg,
+        id=null
     }) => {
+    const navigate = useNavigate()
     const badgeStyles = {
         featured: {
             background: "var(--primaryBlue)",
@@ -35,7 +38,7 @@ const Card = ({
                         </div>
                     </div>
                 </div>
-                <Info>
+                <Info onClick={() => navigate(`/properties/${id}`)}>
                     <h2 style={{cursor: "pointer"}}>{title}</h2>
                     <h3>{subtitle}</h3>
                     <div className='settings'>

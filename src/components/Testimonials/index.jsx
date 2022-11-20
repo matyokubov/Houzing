@@ -19,9 +19,9 @@ const Testimonials = () => {
                     <div>
                         <div className='group'>
                             {
-                                t.slice(0, 3)?.map(({user, job, description, userImg}) => {
+                                t.slice(0, 3)?.map(({user, job, description, userImg}, i) => {
                                     return (
-                                        <Card>
+                                        <Card key={i}>
                                             <div className='description'>
                                                 <p>
                                                     “ 
@@ -47,9 +47,9 @@ const Testimonials = () => {
                     <div>
                         <div className='group'>
                             {
-                                t.slice(3, 6)?.map(({user, job, description, userImg}) => {
+                                t.slice(3, 6)?.map(({user, job, description, userImg}, i) => {
                                     return (
-                                        <Card>
+                                        <Card key={i}>
                                             <div className='description'>
                                                 <p>
                                                     “ 

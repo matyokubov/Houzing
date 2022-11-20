@@ -31,6 +31,7 @@ const CardGroup = ({title, subtitle, recommended, recent}) => {
                                 houseImg={house.attachments[0].imgPath}
                                 afterPrice={house.price}
                                 pricePerMonth={house.salePrice}
+                                id={house.id}
                             />
                         )
                     })

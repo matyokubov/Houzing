@@ -3,7 +3,8 @@ import { Select } from "antd";
 
 export const Container = styled.div`
     display: flex;
-    padding: 10px 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
     column-gap: 20px;
     .btn-group{
         display: flex;
