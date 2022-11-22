@@ -48,7 +48,7 @@ const Card = ({
                         </div>
                         <div>
                             <Bath/>
-                            <span>{settings.baths || 0} Bath</span>
+                            <span>{settings.bath || 0} Bath</span>
                         </div>
                         <div>
                             <Car/>
