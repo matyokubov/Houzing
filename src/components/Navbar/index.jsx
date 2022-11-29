@@ -4,9 +4,12 @@ import { LogoImg } from "../../util/navbar"
 import { navbar } from "../../util/navbar"
 import { Button } from "../Generic"
 import Footer from "../Footer"
+import { ContextAPI } from "../../context"
+import { useContext } from "react"
 
 const Navbar = () => {
     const navigate = useNavigate()
+    const { token } = useContext(ContextAPI)
     return (
         <>
             <Container>
@@ -20,7 +23,7 @@ const Navbar = () => {
                         }
                     </div>
                     <div>
-                        <Button type={"dark"} on={() => navigate("/signin")}>Login</Button>
+                        <Button type={"dark"} on={() => navigate("/profile")}>{token ? "Profile" : "Login"}</Button>
                     </div>
                 </Main>
             </Container>

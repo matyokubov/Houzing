@@ -1,0 +1,22 @@
+/* Ignores */
+.react-fullscreen-slideshow-preview-overlay{
+    bottom: auto;
+    width: 100% !important;
+    height: 100%;
+    cursor: pointer;
+}
+.react-fullscreen-slideshow-slideshow-info, .react-fullscreen-slideshow-photos-count{
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+/* .react-fullscreen-slideshow-photos-count{
+    background: rgba(0,0,0,0.65);
+} */
+#react-fullscreen-slideshow-view-slides-link{
+    position: absolute;
+    top: 50%;
+    left: 39%;
+    font-size: 36px !important;
+}

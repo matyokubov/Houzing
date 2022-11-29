@@ -16,8 +16,9 @@ export const Context = ({children}) => {
         }
     )
     const [changingReq, setChangingReq] = useState(0)
+    const [token, setToken] = useState(localStorage.getItem("token"))
     return (
-        <ContextAPI.Provider value={{ housesList, setHousesList, changingReq, setChangingReq }}>
+        <ContextAPI.Provider value={{ housesList, setHousesList, changingReq, setChangingReq, token, setToken }}>
             {children}
         </ContextAPI.Provider>
     )

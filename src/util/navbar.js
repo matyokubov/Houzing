@@ -4,6 +4,7 @@ import logo from "../assets/logo.png";
 const HomePage = React.lazy(() => import('../pages/Home'))
 const Properties = React.lazy(() => import('../pages/Properties'))
 const HouseDetails = React.lazy(() => import('../pages/HouseDetails'))
+const ProfilePage = React.lazy(() => import('../pages/ProfilePage'))
 
 export const LogoImg = logo;
 
@@ -34,9 +35,13 @@ export const navbar = [
   },
   {
     id: 3,
-    element: <h1>sign in comp</h1>,
-    title: 'Sign In',
-    path: '/signin',
+    element: (
+      <React.Suspense fallback={<React.Fragment><Loader/></React.Fragment>}>
+        <ProfilePage/>
+      </React.Suspense>
+    ),
+    title: 'Profile',
+    path: '/profile',
     private: false,
     hidden: true,
   },

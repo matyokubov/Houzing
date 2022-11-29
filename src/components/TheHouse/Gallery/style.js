@@ -5,14 +5,15 @@ export const Container = styled.div`
 `
 
 export const Primary = styled.div`
-    img{
-        width: 500px;
-    }
+    
 `
 export const Secondary = styled.div`
     display: flex;
-    flex-direction: column;
-    img{
-        width: 100px;
+    flex-wrap: wrap;
+    width: 580px;
+    height: 280px;
+    .react-fullscreen-slideshow-modal-gallery{
+        height: 190px;
+        width: 280px;
     }
 `
