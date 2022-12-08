@@ -33,7 +33,7 @@ const Gallery = ({data}) => {
                         {
                             otherImgs.map((imgURL, i) => <ReactFullscreenSlideshow width={"280px"} height={"190px"} currentSlideIndex={i+1} BannerImgIndex={i+1} images={images} title={"Example Image slideshow"}/>)
                         }
-                        {images.length>3 && <ReactFullscreenSlideshow width={"280px"} height={"190px"} currentSlideIndex={4} BannerImgIndex={4} images={images} more={images.length-4} title={"Example Image slideshow"}/>}
+                        {images.length>4 && <ReactFullscreenSlideshow width={"280px"} height={"190px"} currentSlideIndex={4} BannerImgIndex={4} images={images} more={images.length-4} title={"Example Image slideshow"}/>}
                     </Secondary>
                 </>
             }
