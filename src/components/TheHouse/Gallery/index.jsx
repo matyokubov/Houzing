@@ -2,6 +2,7 @@ import { Container, Primary, Secondary } from "./style";
 // import defaultImg from "../../../assets/noimg.jpg"
 import ReactFullscreenSlideshow from './react-fullscreen-slideshow';
 import "./main.css"
+import fillwhite from "../../../assets/repeats/forhouseimg.jpg"
 
 const Gallery = ({data}) => {
     // data = data.map((val) => val.imgPath ? val.imgPath : defaultImg)
@@ -23,7 +24,7 @@ const Gallery = ({data}) => {
     const otherImgs = images.length>3 ? images.slice(1, 4) : images.slice(1, data.length)
     console.log(firstImg, otherImgs)
     return (
-        <Container className="container">
+        <Container className="container" fillwhite={fillwhite}>
             {
                 images.length>0 && <>
                     <Primary>

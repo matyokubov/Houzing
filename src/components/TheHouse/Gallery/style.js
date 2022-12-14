@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
+    .react-fullscreen-slideshow-modal-gallery{
+        background-image: url(${({fillwhite}) => fillwhite});
+    }
 `
 
 export const Primary = styled.div`
