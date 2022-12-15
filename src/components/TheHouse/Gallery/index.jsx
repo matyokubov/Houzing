@@ -22,15 +22,16 @@ const Gallery = ({data}) => {
     console.log(images)
     const firstImg = images[0]
     const otherImgs = images.length>3 ? images.slice(1, 4) : images.slice(1, data.length)
+    const slideShowWidth = images.length === 1 || images.length === 2 ? "100%" : "580px"
     console.log(firstImg, otherImgs)
     return (
-        <Container className="container" fillwhite={fillwhite}>
+        <Container className="container gallery" fillwhite={fillwhite} dcount={images.length}>
             {
                 images.length>0 && <>
-                    <Primary>
-                        <ReactFullscreenSlideshow width={"580px"} height={"400px"} images={images} title={"Example Image slideshow"}/>
+                    <Primary className="primary">
+                        <ReactFullscreenSlideshow width={slideShowWidth} images={images} title={"Example Image slideshow"}/>
                     </Primary>
-                    <Secondary>
+                    <Secondary className="secondary">
                         {
                             otherImgs.map((imgURL, i) => <ReactFullscreenSlideshow width={"280px"} height={"190px"} currentSlideIndex={i+1} BannerImgIndex={i+1} images={images} title={"Example Image slideshow"}/>)
                         }
