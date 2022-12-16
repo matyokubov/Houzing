@@ -6,6 +6,7 @@ const Properties = React.lazy(() => import('../pages/Properties'))
 const HouseDetails = React.lazy(() => import('../pages/HouseDetails'))
 const ProfilePage = React.lazy(() => import('../pages/ProfilePage'))
 
+// Logo
 export const LogoImg = logo;
 
 export const navbar = [
