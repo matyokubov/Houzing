@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useRequest } from "../../hooks/useRequest"
 import Gallery from "./Gallery";
+import Info from "./Info";
 
 const TheHouse = () => {
     const params = useParams()
@@ -16,7 +17,10 @@ const TheHouse = () => {
     return (
         <div>
             {
-                house ? <Gallery data={house.data.attachments}/> : <div>Loading...</div>
+                house ? <>
+                    <Gallery data={house.data.attachments}/>
+                    <Info house={house}/>
+                </> : <div>Loading...</div>
             }
         </div>
     )

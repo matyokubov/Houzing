@@ -86,6 +86,7 @@ export const Primary = styled.div``
 export const Secondary = styled.div`
     display: flex;
     flex-wrap: wrap;
+    margin-top: 5px;
     .react-fullscreen-slideshow-modal-gallery{
         height: 190px;
         width: 280px;

@@ -1,4 +1,5 @@
 import { Container, Info, Bed, Bath, Car, Area, Prices, Full, Like } from "./style";
+import { CButton } from "../Generic"
 import unknownUser from "../../assets/user.jpg"
 import noImg from "../../assets/noimg.jpg"
 import { useNavigate } from "react-router-dom"
@@ -67,12 +68,8 @@ const Card = ({
                         <h2>${pricePerMonth || 0}/mo</h2>
                     </div>
                     <div className="action">
-                        <div>
-                            <Full/>
-                        </div>
-                        <div>
-                            <Like/>
-                        </div>
+                        <CButton icon={<Full/>}/>
+                        <CButton icon={<Like/>}/>
                     </div>
                 </Prices>
             </div>
