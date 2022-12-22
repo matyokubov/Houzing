@@ -1,9 +1,8 @@
 import styled from "styled-components";
+import { Select } from "antd";
 
 export const Container = styled.div`
     display: flex;
-    justify-content: center;
-    padding: var(--containerPadding);
     padding-top: 10px;
     padding-bottom: 10px;
     column-gap: 20px;
@@ -24,7 +23,7 @@ export const Container = styled.div`
 `
 
 const Menu = styled.div`
-    border: 1px solid var(--themeColor);
+    border: 1px solid #fff;
     border-radius: 5px;
     background-color: #fff;
     span{
@@ -51,4 +50,13 @@ export const Btns = styled.div`
     }
 `
 
-// Something
+export const AntSelect = styled(Select)`
+    min-width: 150px;
+    max-width: 150px;
+    width: 100%;
+    span{
+        font-size: 14px;
+        font-weight: 400;
+        margin-bottom: 0;
+    }
+`

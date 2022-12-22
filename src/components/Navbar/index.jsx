@@ -3,14 +3,18 @@ import { Container, Main } from "./style"
 import { LogoImg } from "../../util/navbar"
 import { navbar } from "../../util/navbar"
 import { Button } from "../Generic"
+import Footer from "../Footer"
+import { ContextAPI } from "../../context"
+import { useContext } from "react"
 
 const Navbar = () => {
     const navigate = useNavigate()
+    const { token } = useContext(ContextAPI)
     return (
         <>
             <Container>
-                <Main>
-                    <img src={LogoImg} alt="houzing"/>
+                <Main className="container">
+                    <img src={LogoImg} alt="houzing" onClick={() => navigate("/home")}/>
                     <div>
                         {
                             navbar.map(({title, path, hidden}, i) => {
@@ -19,11 +23,12 @@ const Navbar = () => {
                         }
                     </div>
                     <div>
-                        <Button type={"dark"} on={() => navigate("/signin")}>Login</Button>
+                        <Button type={"dark"} on={() => navigate("/profile")}>{token ? "Profile" : "Login"}</Button>
                     </div>
                 </Main>
             </Container>
             <Outlet/>
+            <Footer/>
         </>
     )
 }

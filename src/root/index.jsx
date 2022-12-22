@@ -1,21 +1,20 @@
-import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
+import { Routes, Route, Navigate} from "react-router-dom"
 import Navbar from "../components/Navbar"
 import { navbar } from "../util/navbar"
 
 const Root = () => {
+    console.log("the root")
     return (
         <div>
-            <BrowserRouter>
-                <Routes>
-                    <Route element={<Navbar/>}>
-                        {navbar.map(({id, element, path}) => {
-                            return <Route key={id} path={path} element={element}/>
-                        })}
-                    </Route>
-                    <Route path="/" element={<Navigate to={"/home"}/>}/>
+            <Routes>
+                <Route element={<Navbar/>}>
+                    {navbar.map(({id, element, path}) => {
+                        return <Route key={id} path={path} element={element}/>
+                    })}
                     <Route path="*" element={<h1>404 ERROR</h1>}/>
-                </Routes>
-            </BrowserRouter>
+                </Route>
+                <Route path="/" element={<Navigate to={"/home"}/>}/>
+            </Routes>
         </div>
     )
 }
