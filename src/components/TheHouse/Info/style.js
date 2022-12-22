@@ -14,6 +14,9 @@ export const Container = styled.div`
         margin: 0;
         font-weight: 600;
     }
+    span{
+        white-space: nowrap;
+    }
 `
 
 export const Title = styled.div`

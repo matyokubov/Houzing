@@ -30,11 +30,11 @@ const Info = ({house}) => {
                 <span>{`${house.data.address}, ${house.data.country}`}</span>
                 <Features>
                     <Settings>
-                        <div><BedIcon/> {house.data.houseDetails.beds} Beds</div>
-                        <div><BathIcon/> {house.data.houseDetails.bath} Baths</div>
-                        <div><CarIcon/> {house.data.houseDetails.garage} Garages</div>
-                        <div><AreaIcon/> {house.data.houseDetails.area} Sq Ft</div>
-                        <div><CalendarIcon/> Year Built: {house.data.houseDetails.yearBuilt}</div>
+                        <div><BedIcon/> <span>{house.data.houseDetails.beds} Beds</span></div>
+                        <div><BathIcon/> <span>{house.data.houseDetails.bath} Baths</span></div>
+                        <div><CarIcon/> <span>{house.data.houseDetails.garage} Garages</span></div>
+                        <div><AreaIcon/> <span>{house.data.houseDetails.area} Sq Ft</span></div>
+                        <div><CalendarIcon/> <span>Year Built: {house.data.houseDetails.yearBuilt}</span></div>
                     </Settings>
                     <Prices>
                         <div>

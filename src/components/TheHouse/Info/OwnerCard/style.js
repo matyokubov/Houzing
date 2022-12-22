@@ -4,7 +4,7 @@ export const Box = styled.div`
     width: 280px;
     height: 476px;
     margin-left: 20px;
-    padding: 24px 26px;
+    padding: 18px;
     border: 1px solid var(--grayBorder);
     border-radius: 3px;
     .image{
