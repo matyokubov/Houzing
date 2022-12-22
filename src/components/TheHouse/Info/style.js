@@ -42,13 +42,6 @@ export const Data = styled.div`
     width: 100%;
 `
 
-export const Owner = styled.div`
-    width: 280px;
-    height: 476px;
-    background-color: aqua;
-    margin-left: 20px;
-`
-
 export const Settings = styled.div`
     display: inline-flex;
     column-gap: 24px;

@@ -4,19 +4,21 @@ import { Input, Container } from "./style";
 const InputComp = forwardRef(
     (
         {
-            classic,
+            typeInput,
             value,
             defaultValue,
             placeholder,
             icon,
             className,
             name,
-            onPress
+            onPress,
+            width,
+            height
         },
         ref
     ) => {
         return (
-            <Container className={className}>
+            <Container className={className} typeInput={typeInput} width={width} height={height}>
                 {
                     icon && <div className="icon">
                         {icon}
@@ -25,7 +27,6 @@ const InputComp = forwardRef(
                 <Input 
                     ref={ref}
                     type={"text"}
-                    classic={classic}
                     value={value}
                     defaultValue={defaultValue}
                     placeholder={placeholder}

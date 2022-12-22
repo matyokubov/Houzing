@@ -1,4 +1,4 @@
-import { Container, Title, Reaction, Data, Owner, Settings, Features, Prices,
+import { Container, Title, Reaction, Data, Settings, Features, Prices,
     LikeIcon,
     ShareIcon,
     BedIcon,
@@ -8,6 +8,7 @@ import { Container, Title, Reaction, Data, Owner, Settings, Features, Prices,
     CalendarIcon
 } from "./style"
 import { CButton } from "../../Generic"
+import OwnerCard from "./OwnerCard"
 
 const Info = ({house}) => {
     return (
@@ -44,9 +45,7 @@ const Info = ({house}) => {
                     </Prices>
                 </Features>
             </Data>
-            <Owner>
-                Own
-            </Owner>
+            <OwnerCard/>
         </Container>
     )
 }
