@@ -101,7 +101,7 @@ const Properties = () => {
                                 title={house.name}
                                 subtitle={`${house.address}, ${house.country}`}
                                 settings={house.houseDetails}
-                                houseImg={house.attachments[0].imgPath}
+                                houseImg={house.attachments[0] ? house.attachments[0].imgPath : ""}
                                 afterPrice={house.price}
                                 pricePerMonth={house.salePrice}
                                 id={house.id}
