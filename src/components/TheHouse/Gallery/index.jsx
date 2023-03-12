@@ -22,7 +22,7 @@ const Gallery = ({data}) => {
     console.log(images)
     const firstImg = images[0]
     const otherImgs = images.length>3 ? images.slice(1, 4) : images.slice(1, data.length)
-    const slideShowWidth = images.length === 1 || images.length === 2 ? "100%" : "580px"
+    const slideShowWidth = images.length === 1 || images.length === 2 ? "580px" : "580px"
     console.log(firstImg, otherImgs)
     return (
         <Container className="container gallery" fillwhite={fillwhite} dcount={images.length}>

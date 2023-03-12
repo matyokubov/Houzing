@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Box = styled.div`
     width: 280px;
-    height: 476px;
+    height: 500px;
     margin-left: 20px;
     padding: 18px;
     border: 1px solid var(--grayBorder);
@@ -20,6 +20,9 @@ export const Box = styled.div`
     }
     h4{
         margin-top: 24px;
+    }
+    :last-child{
+        margin-bottom: 24px;
     }
 `
 

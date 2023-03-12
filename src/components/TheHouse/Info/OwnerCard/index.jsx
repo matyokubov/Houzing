@@ -1,6 +1,8 @@
 import { Box, User, Fill } from "./style"
 import user from "../../../../assets/user.jpg"
 import { Input } from "../../../Generic"
+import { Checkbox } from "antd"
+import { Button } from "../../../Generic"
 
 const OwnerCard = () => {
     return (
@@ -22,7 +24,11 @@ const OwnerCard = () => {
                 <Input placeholder="Email" name="email" typeInput="c" height="24px"/>
             </Fill>
             <h4>Message</h4>
-            <Input placeholder="Your message" name="area" elem="area" height={"70px"} style={{padding: "3px 0 0 5px"}}/>
+            <Input placeholder="Your message" name="area" elem="area" height={"70px"} width={"100%"} style={{padding: "3px 0 0 5px"}}/>
+            <br /><br />
+            <Checkbox>By submitting this form<br />I agree to Terms of Use</Checkbox>
+            <br /><br />
+            <Button width={"232px"} height={"44px"}>Send request</Button>
         </Box>
     )
 }

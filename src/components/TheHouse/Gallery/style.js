@@ -83,7 +83,9 @@ export const Container = styled.div`
     ${customImgsStyles}
 `
 
-export const Primary = styled.div``
+export const Primary = styled.div`
+    padding-top: 1rem;
+`
 export const Secondary = styled.div`
     display: flex;
     flex-wrap: wrap;

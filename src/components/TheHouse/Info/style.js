@@ -10,6 +10,7 @@ import { ReactComponent as calendar } from "../../../assets/icons/calendar.svg";
 export const Container = styled.div`
     display: flex;
     margin-top: 24px;
+    justify-content: space-between;
     h1, h2{
         margin: 0;
         font-weight: 600;
@@ -42,7 +43,7 @@ export const Reaction = styled.div`
 `
 
 export const Data = styled.div`
-    width: 100%;
+    width: 800px;
 `
 
 export const Settings = styled.div`
@@ -58,6 +59,7 @@ export const Settings = styled.div`
 export const Features = styled.div`
     display: flex;
     justify-content: space-between;
+    width: 100%;
 `
 
 export const Prices = styled.div`
