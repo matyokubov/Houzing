@@ -74,10 +74,11 @@ const customImgsStyles = ({dcount}) => {
 
 export const Container = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     .react-fullscreen-slideshow-modal-gallery{
-        background-image: url(${({fillwhite}) => fillwhite});
+        /* background-image: url(${({fillwhite}) => fillwhite}); */
+        background: linear-gradient(212deg, rgba(2,48,147,1) 0%, rgba(63,160,227,1) 100%);
     }
     ${customImgsStyles}
 `
@@ -86,6 +87,7 @@ export const Primary = styled.div``
 export const Secondary = styled.div`
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin-top: 5px;
     .react-fullscreen-slideshow-modal-gallery{
         height: 190px;

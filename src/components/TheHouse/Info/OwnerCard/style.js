@@ -18,6 +18,9 @@ export const Box = styled.div`
             width: 100%;
         }
     }
+    h4{
+        margin-top: 24px;
+    }
 `
 
 export const User = styled.div`

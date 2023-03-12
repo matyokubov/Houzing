@@ -9,6 +9,7 @@ import { Container, Title, Reaction, Data, Settings, Features, Prices,
 } from "./style"
 import { CButton } from "../../Generic"
 import OwnerCard from "./OwnerCard"
+import Description from "./../Description"
 
 const Info = ({house}) => {
     return (
@@ -44,6 +45,12 @@ const Info = ({house}) => {
                         <span>{house.data.city}</span>
                     </Prices>
                 </Features>
+                <Description>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et optio accusamus consequuntur omnis cupiditate illo, culpa pariatur incidunt corrupti maiores quas officiis sed. Doloremque minus quibusdam aliquid cumque? Beatae, eos.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et optio accusamus consequuntur omnis cupiditate illo, culpa pariatur incidunt corrupti maiores quas officiis sed. Doloremque minus quibusdam aliquid cumque? Beatae, eos.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et optio accusamus consequuntur omnis cupiditate illo, culpa pariatur incidunt corrupti maiores quas officiis sed. Doloremque minus quibusdam aliquid cumque? Beatae, eos.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et optio accusamus consequuntur omnis cupiditate illo, culpa pariatur incidunt corrupti maiores quas officiis sed. Doloremque minus quibusdam aliquid cumque? Beatae, eos.
+                </Description>
             </Data>
             <OwnerCard/>
         </Container>

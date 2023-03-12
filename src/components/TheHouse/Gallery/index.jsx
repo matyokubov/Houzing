@@ -29,13 +29,13 @@ const Gallery = ({data}) => {
             {
                 images.length>0 && <>
                     <Primary className="primary">
-                        <ReactFullscreenSlideshow width={slideShowWidth} images={images} title={"Example Image slideshow"}/>
+                        <ReactFullscreenSlideshow width={slideShowWidth} images={images} title={"Gallery"}/>
                     </Primary>
                     <Secondary className="secondary">
                         {
-                            otherImgs.map((imgURL, i) => <ReactFullscreenSlideshow width={"280px"} height={"190px"} currentSlideIndex={i+1} BannerImgIndex={i+1} images={images} title={"Example Image slideshow"}/>)
+                            otherImgs.map((imgURL, i) => <ReactFullscreenSlideshow width={"280px"} height={"190px"} currentSlideIndex={i+1} BannerImgIndex={i+1} images={images} title={"Gallery"}/>)
                         }
-                        {images.length>4 && <ReactFullscreenSlideshow width={"280px"} height={"190px"} currentSlideIndex={4} BannerImgIndex={4} images={images} more={images.length-4} title={"Example Image slideshow"}/>}
+                        {images.length>4 && <ReactFullscreenSlideshow width={"280px"} height={"190px"} currentSlideIndex={4} BannerImgIndex={4} images={images} more={images.length-4} title={"Gallery"}/>}
                     </Secondary>
                 </>
             }

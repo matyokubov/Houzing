@@ -28,3 +28,13 @@
         margin: 0;
     }
 }
+@media (max-width: 1950px) {
+    .secondary{
+        width: 600px;
+    }
+}
+@media (max-width: 570px) {
+    .secondary{
+        width: auto;
+    }
+}

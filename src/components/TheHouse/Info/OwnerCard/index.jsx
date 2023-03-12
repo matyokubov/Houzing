@@ -21,6 +21,8 @@ const OwnerCard = () => {
                 <Input placeholder="Phone" name="phone" typeInput="c" height="24px"/>
                 <Input placeholder="Email" name="email" typeInput="c" height="24px"/>
             </Fill>
+            <h4>Message</h4>
+            <Input placeholder="Your message" name="area" elem="area" height={"70px"} style={{padding: "3px 0 0 5px"}}/>
         </Box>
     )
 }

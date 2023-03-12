@@ -28,12 +28,23 @@ export const Container = styled.div`
         color: var(--themeColor);
         outline: none;
     }
+    >textarea{
+        border: 0;
+        color: var(--themeColor);
+        outline: none;
+    }
     height: ${({height}) => height ? height : "44px"};
     width: ${({width}) => width && width};
     ${types}
 `
 
 export const Input = styled.input`
+    height: 100%;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+`
+
+export const Area = styled.textarea`
     height: 100%;
     width: 100%;
     font-family: 'Montserrat', sans-serif;
