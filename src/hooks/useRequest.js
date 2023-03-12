@@ -1,6 +1,6 @@
 const { REACT_APP_BASE_URL } = process.env
 
-export const useRequest = () => {
+export const useRequest = (setState) => {
     const request = async ({me, url, method="GET", body, token, headers}) => {
         if (token) headers.Authorization = `Bearer ${localStorage.getItem(token)}`;
         const options = {
@@ -15,7 +15,7 @@ export const useRequest = () => {
             options
         ).then(res => res.json())
         .catch(err => {
-            return {err, ok: false}
+            setState({err, ok: "unknownError"})
         });
     };
     return request

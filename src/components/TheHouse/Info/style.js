@@ -57,6 +57,7 @@ export const Settings = styled.div`
 `
 
 export const Features = styled.div`
+    position: relative;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -64,7 +65,9 @@ export const Features = styled.div`
 
 export const Prices = styled.div`
     text-align: right;
-    >div{
+    position: absolute;
+    right: 0;
+    div{
         display: flex;
         align-items: center;
         column-gap: 8px;

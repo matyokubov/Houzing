@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useRequest } from "../../hooks/useRequest"
+import Loader from "./../Loader"
 import Gallery from "./Gallery";
 import Info from "./Info";
 
 const TheHouse = () => {
     const params = useParams()
-    const request = useRequest()
-    const [ house, setHouse ] = useState(false)
+    const [ house, setHouse ] = useState({ok: "pending"})
+    const request = useRequest(setHouse)
     useEffect(() => {
         request({url: `houses/id/${params.id}`}).then(data => data.data.attachments && setHouse(data))
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -17,10 +18,12 @@ const TheHouse = () => {
     return (
         <div>
             {
-                house ? <>
+                !house.ok ? <>
                     <Gallery data={house.data.attachments}/>
                     <Info house={house}/>
-                </> : <div>Loading...</div>
+                </> : 
+                house.ok === "pending" ? <Loader>Loading data of the propertie...</Loader> :
+                house.ok === "unknownError" ? <Loader>No Internet Connection</Loader> : <></>
             }
         </div>
     )

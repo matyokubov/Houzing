@@ -38,11 +38,13 @@ const Info = ({house}) => {
                         <div><CalendarIcon/> <span>Year Built: {house.data.houseDetails.yearBuilt}</span></div>
                     </Settings>
                     <Prices>
-                        <div>
-                            <span style={{fontSize: "12px", textDecoration: "line-through"}}>${house.data.price.toLocaleString()}/mo</span>
-                            <h2>${house.data.salePrice.toLocaleString()}/mo</h2>
-                        </div>
-                        <span>{house.data.city}</span>
+                        <span>
+                            <div>
+                                <span style={{fontSize: "12px", textDecoration: "line-through"}}>${house.data.price.toLocaleString()}/mo</span>
+                                <h2>${house.data.salePrice.toLocaleString()}/mo</h2>
+                            </div>
+                            {house.data.city}
+                        </span>
                     </Prices>
                 </Features>
                 <Description>
