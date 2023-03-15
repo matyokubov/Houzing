@@ -1,9 +1,11 @@
 import { Form, Submit, Select } from "../style";
 import { Input } from "./../../../Generic/extra.js"
 import { useState } from "react";
+import Loader from "react-js-loader";
 
 const SignUp = () => {
     const [regData, setRegData] = useState({})
+    const [ isLoading, setIsLoading ] = useState(false)
     const onChangeRegData = ({target}) => {
         setRegData({...regData, [target.name]: target.value})
     }
@@ -22,14 +24,17 @@ const SignUp = () => {
             })
                 .then((data) => data.json())
                 .then((res) => {
+                    setIsLoading(false)
                     alert(res.message ? res.message : "Unknown error")
                     console.log("rthen");
                 })
                 .catch((error) => {
+                    setIsLoading(false)
                     alert(!error.toString().includes("SyntaxError") ? `Xatoliik - ${JSON.stringify(error)}` : `Sent your verification link to ${regData.email}\n - Open link\n - Leave Sign in page and login`)
                     console.log("rcatch");
                 })
         } else alert("All data in not filled")
+        setIsLoading(true)
     }
     return (
         <Form>
@@ -46,9 +51,10 @@ const SignUp = () => {
                 <option value="4">4</option>
                 <option value="5">5</option>
             </Select>
-            <Input name="password" theme="classic" type="password" placeholder="Password" onChange={onChangeRegData}/>
-            <Input name="rePassword" theme="classic" type="password" placeholder="Re-enter password" onChange={onChangeRegData}/>
+            <Input name="password_reg" theme="classic" type="password" placeholder="Password" onChange={onChangeRegData}/>
+            <Input name="rePassword_reg" theme="classic" type="password" placeholder="Re-enter password" onChange={onChangeRegData}/>
             <Submit onClick={register}>Register</Submit>
+            { isLoading && <Loader type="hourglass" bgColor={"var(--themeColor)"} title={"Sending Request..."} color={"var(--themeColor)"} size={100} /> }
         </Form>
     )
 }

@@ -23,7 +23,7 @@ const Profile = () => {
                     </> :
                     mode === "login" ? <>
                         <SignIn/>
-                        <span id="navigateAnotherMode" onClick={() => show("reg")}>Aren'n you a account?</span>
+                        <span id="navigateAnotherMode" onClick={() => show("reg")}>Aren't you a account?</span>
                     </> : <></>
                 }
             </div>
