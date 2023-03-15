@@ -4,6 +4,7 @@ import { useRequest } from "../../hooks/useRequest"
 import Loader from "./../Loader"
 import Gallery from "./Gallery";
 import Info from "./Info";
+import CardGroup from "../CardGroup"
 
 const TheHouse = () => {
     const params = useParams()
@@ -21,6 +22,11 @@ const TheHouse = () => {
                 !house.ok ? <>
                     <Gallery data={house.data.attachments}/>
                     <Info house={house}/>
+                    <CardGroup
+                        title={"Recent Properties for Rent"}
+                        subtitle={"Nulla quis curabitur velit volutpat auctor bibendum consectetur sit."}
+                        recent
+                    />
                 </> : 
                 house.ok === "pending" ? <Loader>Loading data of the propertie...</Loader> :
                 house.ok === "unknownError" ? <Loader>No Internet Connection</Loader> : <></>
