@@ -1,0 +1,12 @@
+h2{
+    margin-bottom: .8rem !important;
+}
+.options{
+    display: flex;
+    justify-content: space-between;
+}
+.options > div{
+    display: flex;
+    flex-direction: column;
+    row-gap: .3rem;
+}

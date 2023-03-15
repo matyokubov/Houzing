@@ -4,7 +4,7 @@ import { Input } from "../../../Generic"
 import { Checkbox } from "antd"
 import { Button } from "../../../Generic"
 
-const OwnerCard = () => {
+const OwnerCard = ({firstname = "Unknown", phoneNumber = "Unknown Phone Number"}) => {
     return (
         <Box>
             <User>
@@ -14,8 +14,8 @@ const OwnerCard = () => {
                     </div>
                 </div>
                 <div>
-                    <h3>Name</h3>
-                    <span>(123)456-7890</span>
+                    <h3>{firstname}</h3>
+                    <span>{phoneNumber}</span>
                 </div>
             </User>
             <Fill>

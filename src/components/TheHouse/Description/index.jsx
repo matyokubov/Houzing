@@ -5,7 +5,7 @@ const Description = ({children}) => {
         <div className="sect">
             <div>
                 <h2>Description</h2>
-                <p>{children}</p>
+                <p>{children ? children : "No description"}</p>
             </div>
         </div>
     )

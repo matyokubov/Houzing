@@ -10,6 +10,8 @@ import { Container, Title, Reaction, Data, Settings, Features, Prices,
 import { CButton } from "../../Generic"
 import OwnerCard from "./OwnerCard"
 import Description from "./../Description"
+import Locations from "./../Locations"
+import FeaturesComp from "../Features"
 
 const Info = ({house}) => {
     return (
@@ -48,13 +50,19 @@ const Info = ({house}) => {
                     </Prices>
                 </Features>
                 <Description>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et optio accusamus consequuntur omnis cupiditate illo, culpa pariatur incidunt corrupti maiores quas officiis sed. Doloremque minus quibusdam aliquid cumque? Beatae, eos.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et optio accusamus consequuntur omnis cupiditate illo, culpa pariatur incidunt corrupti maiores quas officiis sed. Doloremque minus quibusdam aliquid cumque? Beatae, eos.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et optio accusamus consequuntur omnis cupiditate illo, culpa pariatur incidunt corrupti maiores quas officiis sed. Doloremque minus quibusdam aliquid cumque? Beatae, eos.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et optio accusamus consequuntur omnis cupiditate illo, culpa pariatur incidunt corrupti maiores quas officiis sed. Doloremque minus quibusdam aliquid cumque? Beatae, eos.
+                    {house?.data.description}
                 </Description>
+                <Locations
+                    address={house?.data.address}
+                    county={house?.data.region}
+                    city={house?.data.city}
+                    zip={house?.data.zipCode}
+                    area={house?.data.region}
+                    country={house?.data.country}
+                />
+                <FeaturesComp/>
             </Data>
-            <OwnerCard/>
+            <OwnerCard firstname={house?.data.user.firstname}/>
         </Container>
     )
 }
