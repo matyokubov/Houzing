@@ -1,0 +1,15 @@
+._container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+    margin: 6rem auto;
+}
+
+._container #navigateAnotherMode{
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--themeColor);
+    border-bottom: 1px solid var(--themeColor);
+    cursor: pointer;
+}
