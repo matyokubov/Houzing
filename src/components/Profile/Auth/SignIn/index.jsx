@@ -58,8 +58,8 @@ const SignIn = () => {
         token ? navigate("/profile") : (
             <Form>
                 <h2>Sign in</h2>
-                <Input name="email_login" theme="classic" type="text" placeholder="Email" ref={email}/>
-                <Input name="password_login" theme="classic" type="password" placeholder="Password" className="mb16" ref={password}/>
+                <Input theme="classic" type="text" placeholder="Email" ref={email}/>
+                <Input theme="classic" type="password" placeholder="Password" className="mb16" ref={password}/>
                 <Remember>
                     <span className="check">
                         <input type="checkbox" name="remember" id="remember"/>
