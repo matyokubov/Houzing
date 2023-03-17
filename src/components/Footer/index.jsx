@@ -12,6 +12,13 @@ import {
 } from "./style";
 
 const Footer = () => {
+    const scrollToTop = () => {
+        let target = document.getElementById("head");
+        document.querySelector("body").scroll({
+            top: target.offsetTop,
+            behavior: 'smooth'
+        });
+    }
     return (
         <Container>
             <div>
@@ -68,7 +75,7 @@ const Footer = () => {
                         </div>
                         <div className="copyr">
                             <span>Copyright © 2022 CreativeLayers. All Right Reserved.</span>
-                            <div className="up">
+                            <div className="up" onClick={scrollToTop}>
                                 <ToUp/>
                             </div>
                         </div>
