@@ -30,7 +30,7 @@ const SignUp = () => {
                 })
                 .catch((error) => {
                     setIsLoading(false)
-                    alert(!error.toString().includes("SyntaxError") ? `Xatoliik - ${JSON.stringify(error)}` : `Sent your verification link to ${regData.email}\n - Open link\n - Leave Sign in page and login`)
+                    alert(!error.toString().includes("SyntaxError") ? `Error: ${JSON.stringify(error)}` : `Sent your verification link to ${regData.email}\n - Open link\n - Leave Sign in page and login`)
                     console.log("rcatch");
                 })
         } else alert("All data in not filled")

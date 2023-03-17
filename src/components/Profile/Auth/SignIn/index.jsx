@@ -36,7 +36,10 @@ const SignIn = () => {
                     request && setTokenToStorage(res.authenticationToken)
                 } else alert("Unknown error")
             })
-            .catch((error) => alert(error.toString().includes("SyntaxError") ? `Email or password incorrect` : "Unknown error"))
+            .catch((error) => {
+                setIsLoading(false)
+                alert(error.toString().includes("SyntaxError") ? `Email or password incorrect` : "Unknown error")
+            })
         setIsLoading(true)
     }
     console.log("loading", isLoading);
@@ -58,8 +61,8 @@ const SignIn = () => {
         token ? navigate("/profile") : (
             <Form>
                 <h2>Sign in</h2>
-                <Input theme="classic" type="text" placeholder="Email" ref={email}/>
-                <Input theme="classic" type="password" placeholder="Password" className="mb16" ref={password}/>
+                <Input name="email_login" theme="classic" type="text" placeholder="Email" ref={email}/>
+                <Input name="password_login" theme="classic" type="password" placeholder="Password" className="mb16" ref={password}/>
                 <Remember>
                     <span className="check">
                         <input type="checkbox" name="remember" id="remember"/>
