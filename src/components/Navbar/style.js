@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    position: sticky;
+    top: 0;
+    z-index: 99;
     background-color: var(--themeColor);
     a{
         color: #fff;

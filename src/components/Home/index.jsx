@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import Filter from "../Filter"
 import Carousel from "../Carousel"
 import CardGroup from "../CardGroup"
@@ -7,6 +8,14 @@ import Banner from "../Banner"
 import Testimonials from "../Testimonials"
 
 const Home = () => {
+    // fixed "scroll bug"
+    useEffect(() => {
+        let target = document.getElementById("head");
+        document.querySelector("body").scroll({
+            top: target.offsetTop,
+            behavior: 'smooth'
+        });
+    }, [])
     return (
         <div>
             <Filter/>

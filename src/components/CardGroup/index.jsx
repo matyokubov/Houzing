@@ -3,7 +3,7 @@ import Card from '../Card'
 import { Container } from './style'
 import { cards as mock } from '../../mock/data'
 
-const CardGroup = ({title, subtitle, recommended, recent}) => {
+const CardGroup = ({title, subtitle, recommended, recent, reloadMode = false}) => {
     const { REACT_APP_BASE_URL: url } = process.env
     const [ data, setData ] = useState(mock)
     useEffect(() => {
@@ -32,6 +32,7 @@ const CardGroup = ({title, subtitle, recommended, recent}) => {
                                 afterPrice={house.price}
                                 pricePerMonth={house.salePrice}
                                 id={house.id}
+                                reloadMode={reloadMode}
                             />
                         )
                     })

@@ -12,6 +12,7 @@ const Navbar = () => {
     const { token } = useContext(ContextAPI)
     return (
         <>
+            <div id="head"></div>
             <Container>
                 <Main className="container">
                     <img src={LogoImg} alt="houzing" onClick={() => navigate("/home")}/>

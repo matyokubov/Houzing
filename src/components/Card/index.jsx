@@ -12,7 +12,8 @@ const Card = ({
         pricePerMonth="0",
         houseImg,
         ownerImg,
-        id=null
+        id=null,
+        reloadMode
     }) => {
     const navigate = useNavigate()
     const badgeStyles = {
@@ -39,7 +40,10 @@ const Card = ({
                         </div>
                     </div>
                 </div>
-                <Info onClick={() => navigate(`/properties/${id}`)}>
+                <Info onClick={() => {
+                    navigate(`/properties/${id}`)
+                    reloadMode && window.location.reload()
+                }}>
                     <h2 style={{cursor: "pointer"}}>{title}</h2>
                     <h3>{subtitle}</h3>
                     <div className='settings'>

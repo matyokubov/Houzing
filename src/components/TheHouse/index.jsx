@@ -11,6 +11,11 @@ const TheHouse = () => {
     const [ house, setHouse ] = useState({ok: "pending"})
     const request = useRequest(setHouse)
     useEffect(() => {
+        let target = document.getElementById("head");
+        document.querySelector("body").scroll({
+            top: target.offsetTop,
+            behavior: 'smooth'
+        });
         request({url: `houses/id/${params.id}`}).then(data => data.data.attachments && setHouse(data))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -26,6 +31,7 @@ const TheHouse = () => {
                         title={"Recent Properties for Rent"}
                         subtitle={"Nulla quis curabitur velit volutpat auctor bibendum consectetur sit."}
                         recent
+                        reloadMode
                     />
                 </> : 
                 house.ok === "pending" ? <Loader>Loading data of the propertie...</Loader> :
