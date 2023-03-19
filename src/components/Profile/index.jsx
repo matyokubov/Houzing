@@ -1,19 +1,11 @@
 import SignIn from "./Auth/SignIn"
 import SignUp from "./Auth/SignUp"
 import Dashboard from "./Dashboard"
-import { useContext, useState, useEffect } from "react"
+import { useContext, useState } from "react"
 import { ContextAPI } from "../../context"
 import "./index.css"
 
 const Profile = () => {
-    // fixed "scroll bug"
-    useEffect(() => {
-        let target = document.getElementById("head");
-        document.querySelector("body").scroll({
-            top: target.offsetTop,
-            behavior: 'smooth'
-        });
-    }, [])
     const { token, setToken } = useContext(ContextAPI)
     let uniqueToken = localStorage.getItem("token")
     const [ mode, setMode ] = useState("login")

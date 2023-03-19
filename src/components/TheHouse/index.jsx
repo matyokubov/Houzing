@@ -11,11 +11,6 @@ const TheHouse = () => {
     const [ house, setHouse ] = useState({ok: "pending"})
     const request = useRequest(setHouse)
     useEffect(() => {
-        let target = document.getElementById("head");
-        document.querySelector("body").scroll({
-            top: target.offsetTop,
-            behavior: 'smooth'
-        });
         request({url: `houses/id/${params.id}`}).then(data => data.data.attachments && setHouse(data))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])

@@ -22,14 +22,6 @@ const Properties = () => {
     const hsize = useRef(20)
     const [smv, setSmv] = useState(false)
     console.log("Properties");
-    // fixed "scroll bug"
-    useEffect(() => {
-        let target = document.getElementById("head");
-        document.querySelector("body").scroll({
-            top: target.offsetTop,
-            behavior: 'smooth'
-        });
-    }, [])
     useEffect(() => {
         hsize.current = 20
         fetch(`${url}houses/list${search}`)
